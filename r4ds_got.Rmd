@@ -1,0 +1,67 @@
+---
+title: "Datos de Miércoles R4DS Español -17 de abril "
+output: md_document
+---
+
+
+### CARGAMOS LOS DATOS: 917 PERSONAJES DE GoT
+
+```{r message=FALSE, warning=FALSE}
+library(readr)
+personajes <- readr::read_csv("https://raw.githubusercontent.com/cienciadedatos/datos-de-miercoles/master/datos/2019/2019-04-17/personajes_libro.csv")
+```
+
+### ACOTAMOS LA BASE DE DATOS Y DAMOS FORMATO (con `ggforce`) PARA GRAFICAR 
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggforce)
+
+conjuntos <- personajes %>% 
+  select(2:4) %>%  #Nos quedamos con las primeras 4 columnas (nombre, lealtad, genero y noble (dummy))
+  group_by(lealtad, genero, noble) %>%  
+  mutate(value = n()) %>% 
+  ungroup() %>% 
+  mutate(noble = ifelse(noble == 1, "Noble", "Plebeyo"), 
+         genero = ifelse(genero == "masculino", "H", "M")) %>% 
+  rename('Genero' = 'genero', 
+         'Status' = 'noble', 
+         'Lealtad' = 'lealtad') %>% 
+  gather_set_data(2:3) %>% 
+  print()
+
+
+```
+
+
+### Tabla de doble entrada (Genero y Status)
+```{r message=FALSE, warning=FALSE}
+
+personajes %>% 
+  select(Genero = genero, Status = noble) %>% 
+  mutate(Status = ifelse(Status == 1, "Noble", "Plebeyo")) %>% 
+  table()
+
+
+```
+
+
+### GENERAMOS PLOT 
+```{r message=FALSE, warning=FALSE}
+library(ggthemes)
+ggplot(conjuntos, aes(x, id = id, split = y, value = value)) + 
+  geom_parallel_sets(aes(fill = Lealtad), alpha = 0.5, axis.width = 0.1) +
+  geom_parallel_sets_axes(axis.width = 0.1) +
+  geom_parallel_sets_labels(colour = 'white') +
+  theme_fivethirtyeight() +
+  theme(axis.text.y = element_blank()) +
+  labs(title = "Genero y Status de personajes de GoT", 
+       subtitle = "#DatosDeMiércoles (por @TuQmano)", 
+       caption = "Datos de @R4DS_es")
+  
+  
+  
+
+
+```
+
