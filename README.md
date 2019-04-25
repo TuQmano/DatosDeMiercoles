@@ -1,6 +1,7 @@
 # #DatosDeMiercoles ([@R4DS_es ](https://twitter.com/R4DS_es/))
 ## 24 de abril de 2019 (_gapminder_ data set):
-![](https://github.com/TuQmano/DatosDeMiercoles/blob/master/plot.PNG?raw=true)
+
+<img src="https://github.com/TuQmano/DatosDeMiercoles/blob/master/plot.PNG?raw=true" width="400">
 
 >[GIF](https://twitter.com/TuQmano/status/1121510635823669253)
 
