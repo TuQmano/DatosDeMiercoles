@@ -1,0 +1,94 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+### Datos de miércoles - gapminder (24 de abril)
+
+
+
+### Cargamos Paquetes
+```{r}
+
+library(tidyverse)
+library(readr)
+library(gganimate)
+library(ggthemes)
+#  devtools::install_github("rensa/ggflags") # Instalar por primera vez
+library(ggflags) # Para geom_flags
+library(countrycode)  # Para obtener codigos de paises
+
+```
+
+
+### Cargamos datos 
+
+```{r}
+
+ gapminder <- readr::read_csv("https://raw.githubusercontent.com/cienciadedatos/datos-de-miercoles/master/datos/2019/2019-04-24/gapminder_es.csv") %>% 
+   mutate(pais = ifelse((pais == "Bolivia (Estado Plurinacional de)"), 
+                        "Bolivia", ifelse(pais == "Venezuela (Republica Bolivariana de)",
+                                          "Venezuela", pais )))%>% 
+   print()
+
+```
+
+
+### Cargamos codigos de paises de `countrycode`
+ 
+```{r}
+data <-  as.data.frame(countrycode::codelist) %>% 
+  as.tibble() %>% 
+  filter(continent == "Americas") %>% 
+  select(pais = country.name.en, code = ecb ) %>% 
+  mutate(pais = ifelse(pais== "Brazil", "Brasil", pais)) %>% 
+  print(n = Inf)
+ 
+```
+ 
+
+### Vinculamos datos de `gapminder` con los códigos de paises de `countrycode` para graficar mapas
+```{r}
+gapminder_code <- gapminder %>% 
+  mutate(anio = as.integer(anio)) %>% 
+  filter(str_detect(continente, "Ame")) %>% 
+  left_join(data, by = "pais") %>% 
+  mutate(code = tolower(code), 
+         code = ifelse(pais == "Estados Unidos de America", 
+                       "us", code),
+         pais = ifelse(pais =="Estados Unidos de America", "EE.UU." , pais)) %>% 
+  filter(!is.na(code)) 
+
+```
+
+
+### PLOT
+
+```{r}
+
+gapminder_code %>% 
+  mutate(anio = as.integer(anio)) %>% 
+ggplot(aes(x = pib_per_capita, y = esperanza_de_vida)) +
+ # geom_point(alpha = 0.7, show.legend = FALSE) +
+  geom_text(aes(label = pais), nudge_y = 2) +
+  geom_flag(aes(country = code, size = poblacion)) +
+  scale_size(range = c(2, 12)) + 
+  scale_x_log10() +
+  labs(title = 'Evolución del PIB (per capita) y \n Esperanza de vida en América Latina',
+       subtitle = 'Año: {frame_time} (tamaño de bandera según población)',
+       x = 'PIB per capita', 
+       y = 'Esperanza de Vida', 
+       caption = '@TuQmano con datos traducidos de gapminder (@r4ds_es)') +
+  transition_time(anio) +
+  ease_aes('linear') +
+  theme_fivethirtyeight() +
+  guides(colour = F, 
+         label = F, 
+         size = F)
+  
+```
+
+
+
+
