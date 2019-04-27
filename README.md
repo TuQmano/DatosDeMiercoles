@@ -17,3 +17,11 @@
 > [notebook](https://github.com/TuQmano/DatosDeMiercoles/blob/master/r4ds_got.Rmd)
 
 > [Sankey? Is it an Alluvial? No, It’s a Parallel Set](https://www.data-imaginist.com/2019/the-ggforce-awakens-again/)
+
+## 10 de abril de 2019 (FIFA data set): 
+
+![](https://pbs.twimg.com/media/D5MXCTuWwAAUp-c.jpg)
+
+> [script](https://github.com/TuQmano/DatosDeMiercoles/blob/master/r4ds_FIFA.R)
+
+> [#MiercolesDeDatos](https://github.com/cienciadedatos/datos-de-miercoles). Descripción del proyecto y datos.
