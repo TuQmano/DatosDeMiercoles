@@ -11,7 +11,7 @@
 
 ![](https://pbs.twimg.com/media/D5hBqYqXoAAb83t.png)
 
-> [notebook](https://github.com/TuQmano/DatosDeMiercoles/blob/master/balanza.R)
+> [script](https://github.com/TuQmano/DatosDeMiercoles/blob/master/balanza.R)
 
 ## 24 de abril de 2019 (_gapminder_ data set):
 
