@@ -1,4 +1,18 @@
 # #DatosDeMiercoles ([@R4DS_es ](https://twitter.com/R4DS_es/))
+
+
+## 8 de mayo de 2019 (_datos parlamentarios_ data set):
+
+![](https://pbs.twimg.com/media/D6PUddLXkAU_TAN.jpg:large)
+
+> [script](https://github.com/TuQmano/DatosDeMiercoles/blob/master/cuota_genero.R)
+
+## 1 de mayo de 2019 (_comercio mundial_ data set):
+
+![](https://pbs.twimg.com/media/D5hBqYqXoAAb83t.png)
+
+> [notebook](https://github.com/TuQmano/DatosDeMiercoles/blob/master/balanza.R)
+
 ## 24 de abril de 2019 (_gapminder_ data set):
 
 <img src="https://github.com/TuQmano/DatosDeMiercoles/blob/master/plot.PNG?raw=true" width="400">
