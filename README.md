@@ -1,6 +1,12 @@
 # #DatosDeMiercoles ([@R4DS_es ](https://twitter.com/R4DS_es/))
 
 
+## 15 de mayo de 2019 (_Spotify_ data set):
+
+![](https://pbs.twimg.com/media/D64CmOHWkAovhGY.jpg)
+
+> [script](https://github.com/TuQmano/DatosDeMiercoles/blob/master/scrip_spotify_r4ds_es.R)
+
 ## 8 de mayo de 2019 (_datos parlamentarios_ data set):
 
 ![](https://pbs.twimg.com/media/D6PUddLXkAU_TAN.jpg:large)
