@@ -1,6 +1,15 @@
 # #DatosDeMiercoles ([@R4DS_es ](https://twitter.com/R4DS_es/))
 
 
+
+## 22 de mayo de 2019 (_OMS_ data set):
+
+![](https://pbs.twimg.com/media/D7SLbDiWsAAswRZ.jpg:large)
+
+> [script](https://github.com/TuQmano/DatosDeMiercoles/blob/master/tuberculosis.R)
+
+
+
 ## 15 de mayo de 2019 (_Spotify_ data set):
 
 ![](https://pbs.twimg.com/media/D64CmOHWkAovhGY.jpg)
