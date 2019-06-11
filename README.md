@@ -1,6 +1,12 @@
 # #DatosDeMiercoles ([@R4DS_es ](https://twitter.com/R4DS_es/))
 
 
+## 29 de mayo de 2019 (_Terremotos_ data set):
+
+![](https://pbs.twimg.com/media/D8vzqWJX4AAWQvS.png)
+
+> [script](https://github.com/TuQmano/DatosDeMiercoles/blob/master/terremotos.R)
+
 
 ## 22 de mayo de 2019 (_OMS_ data set):
 
